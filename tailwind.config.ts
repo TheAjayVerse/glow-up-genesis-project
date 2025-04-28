@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,22 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// We Glow custom colors
+				glow: {
+					purple: '#9b87f5',
+					'purple-dark': '#7E69AB',
+					'soft-purple': '#E5DEFF',
+					'soft-pink': '#FFDEE2',
+					'soft-peach': '#FDE1D3',
+					'neutral-gray': '#8E9196',
+					'light-gray': '#F1F0FB',
+					'dark-purple': '#1A1F2C',
 				}
+			},
+			fontFamily: {
+				'sans': ['Poppins', 'sans-serif'],
+				'serif': ['Playfair Display', 'serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +100,33 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0'
+					},
+					'100%': {
+						opacity: '1'
+					}
+				},
+				'glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px 2px rgba(155, 135, 245, 0.3)'
+					},
+					'50%': {
+						boxShadow: '0 0 30px 5px rgba(155, 135, 245, 0.5)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'glow': 'glow 2s infinite ease-in-out'
+			},
+			backgroundImage: {
+				'marble-light': "url('/images/marble-light.jpg')",
+				'marble-dark': "url('/images/marble-dark.jpg')"
 			}
 		}
 	},
