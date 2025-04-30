@@ -1,47 +1,35 @@
-
 import React from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-const testimonials = [
-  {
-    name: "Sophia K.",
-    beforeImg: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=600&h=800&fit=crop&q=80",
-    afterImg: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=600&h=800&fit=crop&q=80",
-    quote: "We Glow transformed my skincare routine completely. My skin is clearer than ever!",
-    category: "Skin"
-  },
-  {
-    name: "Alex M.",
-    beforeImg: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=800&fit=crop&q=80",
-    afterImg: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=800&fit=crop&q=80",
-    quote: "The fitness recommendations were tailored perfectly to my goals, and I'm seeing real results.",
-    category: "Body"
-  },
-  {
-    name: "Maya L.",
-    beforeImg: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=600&h=800&fit=crop&q=80",
-    afterImg: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=600&h=800&fit=crop&q=80",
-    quote: "My mental clarity has improved so much since following the mind exercises.",
-    category: "Mind"
-  },
-];
-
+const testimonials = [{
+  name: "Sophia K.",
+  beforeImg: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=600&h=800&fit=crop&q=80",
+  afterImg: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=600&h=800&fit=crop&q=80",
+  quote: "We Glow transformed my skincare routine completely. My skin is clearer than ever!",
+  category: "Skin"
+}, {
+  name: "Alex M.",
+  beforeImg: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=800&fit=crop&q=80",
+  afterImg: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=800&fit=crop&q=80",
+  quote: "The fitness recommendations were tailored perfectly to my goals, and I'm seeing real results.",
+  category: "Body"
+}, {
+  name: "Maya L.",
+  beforeImg: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=600&h=800&fit=crop&q=80",
+  afterImg: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=600&h=800&fit=crop&q=80",
+  quote: "My mental clarity has improved so much since following the mind exercises.",
+  category: "Mind"
+}];
 const BeforeAfterSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
-  
   const nextSlide = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    setActiveIndex(prevIndex => (prevIndex + 1) % testimonials.length);
   };
-  
   const prevSlide = () => {
-    setActiveIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+    setActiveIndex(prevIndex => (prevIndex - 1 + testimonials.length) % testimonials.length);
   };
-  
   const activeTestimonial = testimonials[activeIndex];
-  
-  return (
-    <section className="py-16 bg-gradient-to-b from-glow-light-gray/50 to-white">
+  return <section className="py-16 bg-gradient-to-b from-glow-light-gray/50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Transformation Stories</h2>
@@ -59,55 +47,24 @@ const BeforeAfterSection: React.FC = () => {
                   <span className="absolute top-4 left-4 bg-glow-soft-purple rounded-full px-3 py-1 text-xs font-medium text-glow-purple-dark z-10">
                     Before
                   </span>
-                  <img 
-                    src={activeTestimonial.beforeImg} 
-                    alt={`${activeTestimonial.name} before`} 
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={activeTestimonial.beforeImg} alt={`${activeTestimonial.name} before`} className="w-full h-full object-cover" />
                 </div>
                 <div className="flex-1 relative">
                   <span className="absolute top-4 left-4 bg-glow-soft-peach rounded-full px-3 py-1 text-xs font-medium text-glow-purple-dark z-10">
                     After
                   </span>
-                  <img 
-                    src={activeTestimonial.afterImg} 
-                    alt={`${activeTestimonial.name} after`} 
-                    className="w-full h-full object-cover"
-                  />
+                  
                   <div className="absolute bottom-4 right-4 bg-glow-purple text-white text-xs font-medium rounded-full px-3 py-1">
                     {activeTestimonial.category}
                   </div>
                 </div>
               </div>
               
-              <div className="p-8 md:w-2/5 flex flex-col justify-between bg-white">
-                <div>
-                  <blockquote className="text-lg font-medium italic mb-4">
-                    "{activeTestimonial.quote}"
-                  </blockquote>
-                  <p className="font-serif font-bold">{activeTestimonial.name}</p>
-                </div>
-                
-                <div className="flex justify-between items-center mt-8">
-                  <p className="text-sm text-glow-neutral-gray">
-                    {activeIndex + 1} / {testimonials.length}
-                  </p>
-                  <div className="flex space-x-2">
-                    <Button variant="outline" size="icon" onClick={prevSlide} className="h-8 w-8">
-                      <ArrowLeft className="h-4 w-4" />
-                    </Button>
-                    <Button variant="outline" size="icon" onClick={nextSlide} className="h-8 w-8">
-                      <ArrowRight className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default BeforeAfterSection;
